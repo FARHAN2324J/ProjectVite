@@ -63,7 +63,10 @@ function Farhan() {
           <div className="flex justify-between px-20 py-5 items-center container-header">
             <div className="header-logo">
               <div className='flex flex-col items-center'>
-                <span className='font-bold text-[#404040] text-[24px] sm:tracking-[3px] sm:text-[32px]'>modimal</span>
+                <div className="flex justify-center items-center">
+                  <span className='font-bold text-[#404040] text-[24px] sm:tracking-[3px] sm:text-[32px]'>modimal</span>
+                  <img className="w-3" src="/src/img/photo_2025-01-31_09-43-00.jpg" alt="" />
+                </div>
                 <span className='font-normal sm:text-[10px] text-[7.5px] sm:tracking-[1px] text-[#404040]'>women clothing</span>  
               </div>
             </div>
