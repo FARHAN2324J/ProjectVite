@@ -1,7 +1,12 @@
 @import "tailwindcss";
 
-
+body{
+    font-family: "Montserrat";
+}
 .coustom{
     height: 70vh;
+}
+.footer{
+    background-color: #404040;
 }
 
