@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom';
+import Footer from './Footer';
 
 
 
 export default function Pants() {
     return (
         <div>
-            <div className='text-center'><Link to="/"><span className='text-gray-700'>Home</span></Link> <span className='text-gray-700'>/</span> <Link><span className='text-gray-950'>Pants</span></Link></div>
+            <div className='flex  px-10 py-5 gap-5'><Link to="/"><span className='text-gray-700'>Home</span></Link> <span className='text-gray-700'>/</span> <Link><span className='text-gray-950'>Pants</span></Link></div>
             <div className='p-20'>
         <div className='flex justify-between b'>
           <h1 className='text-3xl font-semibold text-[#0C0C0C]'>Best Sellers</h1>
@@ -113,6 +114,7 @@ export default function Pants() {
         
         
       </div>
-        </div>
+      <Footer/>
+      </div>
     )
 }

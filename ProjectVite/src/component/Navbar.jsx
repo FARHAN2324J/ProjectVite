@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useState } from "react";
 
+
 export default function Navbar() {
         const [visibility, setVisibility] = useState({
       collection: false,
@@ -64,7 +65,7 @@ export default function Navbar() {
                   </li>
                   <li onMouseEnter={() => handleMouseEnter('newIn')} onMouseLeave={() => handleMouseLeave('newIn')}>New In</li>
                   <li>ModiWeek</li>
-                  <li onMouseEnter={() => handleMouseEnter('plusSize')} onMouseLeave={() => handleMouseLeave('plusSize')}>Plus Size</li>
+                  <li onMouseEnter={() => handleMouseEnter('plusSize')} onMouseLeave={() => handleMouseLeave('plusSize')}><Link to='/plusSize'>Plus Size</Link></li>
                   <li onMouseEnter={() => handleMouseEnter('sustainability')} onMouseLeave={() => handleMouseLeave('sustainability')}>Sustainability</li>
                 </ul>
             </div>
@@ -93,7 +94,7 @@ export default function Navbar() {
               <div>
                 <h1>Category</h1>
                 <div className='flex gap-4 flex-col py-6 text-[#404040]'>
-                  <span>Shop all</span>
+                  <Link to='/all'><span>Shop all</span></Link>
                   <span>Boluses & Top</span>
                   <Link to="/pants" className="cursor-pointer">Pants</Link>
                   <span>Dresses & jumpsuits</span>
@@ -109,7 +110,7 @@ export default function Navbar() {
                 <div className='flex gap-4 flex-col py-6 text-[#404040]'>
                   <span>New in</span>
                   <span>Modiweek</span>
-                  <span>Plus size</span>
+                  <Link to='/plusSize'><span>Plus Size</span></Link>
                   <span>Best seller</span>
                 </div>
               </div>
@@ -131,7 +132,7 @@ export default function Navbar() {
                 </div>
                 <div className=' flex flex-col gap-5'>
                   <img className='h-[420px]' src="/src/img/photo_2025-01-26_21-07-26.jpg" alt="" />
-                  <span>Plus Size</span>
+                  <Link to='/plusSize'><span>Plus Size</span></Link>
                 </div>
               </div>
              
@@ -146,7 +147,7 @@ export default function Navbar() {
               <div>
                 <h1>Category</h1>
                 <div className='flex gap-4 flex-col py-6 text-[#404040]'>
-                  <span>Shop all</span>
+                  <Link to='/all'><span>Shop all</span></Link>
                   <span>Boluses & Top</span>
                   <Link to="/pants" className="cursor-pointer">Pants</Link>
                   <span>Dresses & jumpsuits</span>
@@ -160,7 +161,7 @@ export default function Navbar() {
               <div>
                 <h1>Trending</h1>
                 <div className='flex gap-4 flex-col py-6 text-[#404040]'>
-                  <span>Plus Size</span>
+                  <Link to='/plusSize'><span>Plus Size</span></Link>
                   <span>Fall Collection</span>
                   <span>Modiweek</span>
                 </div>
@@ -192,7 +193,7 @@ export default function Navbar() {
               <div>
                 <h1>Category</h1>
                 <div className='flex gap-4 flex-col py-6 text-[#404040]'>
-                  <span>Shop all</span>
+                  <Link to='/all'><span>Shop all</span></Link>
                   <span>Boluses & Top</span>
                   <Link to="/pants" className="cursor-pointer">Pants</Link>
                   <span>Dresses & jumpsuits</span>
@@ -255,6 +256,7 @@ export default function Navbar() {
           {/* ------NAVBAR--HOVER-END----- */}
 
         </div>
+
         </div>
     )
 }
