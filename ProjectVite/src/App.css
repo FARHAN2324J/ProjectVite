@@ -65,3 +65,7 @@ body{
     }
   }
   
+  .image-size {
+    width: 100%;
+    object-fit: cover; 
+}

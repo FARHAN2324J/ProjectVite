@@ -11,6 +11,8 @@ import Store from './component/store';
 import { HeartProvider } from './component/HeartContext';
 import Login from './component/Login';
 import FAQs from './component/FaQs';
+import PantsDetail from './component/PantsDetails';
+import PlusSizeDetails from './component/plusSizeDetails';
 
 function App() {
   return (
@@ -20,8 +22,11 @@ function App() {
         <Route path="/" element={<><Farhan /><Amir /></>} />
         <Route path="/all" element={<All />} />
         <Route path="/pants" element={<PantsPage />} />
+        <Route path="/pants/:id" element={<PantsDetail />} />
         <Route path="/favorites" element={<Favorites />} />
         <Route path="/PlusSize" element={<PlusSize />} />
+        <Route path="/PlusSize/:id" element={<PlusSizeDetails />} />
+
         <Route path="/store" element={<Store />} />
         <Route path="/login" element={<Login />} />
         <Route path="/faqs" element={<FAQs />} />

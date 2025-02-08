@@ -7,8 +7,8 @@ import Navbar from "./Navbar";
 export default function PlusSize() {
     const [loading, setLoading] = useState(false);
     const [items, setItems] = useState([
-        { id: 1, image: "/src/imgPlusSize/4.jpg", title: "Cool Weave", description: "Anywhere Dress", price: "$210", isNew: true },
-        { id: 2, image: "/src/imgPlusSize/3.jpg", title: "Cool Weave", description: "Anywhere Dress", price: "$210", isNew: false },
+        { id: 1, image: "/src/imgPlusSize/3.jpg", title: "Elastic Waist", description: "Anywhere Dress", price: "$210", isNew: true },
+        { id: 2, image: "/src/imgPlusSize/4.jpg", title: "Cool Weave", description: "Anywhere Dress", price: "$210", isNew: false },
     ]);
 
     const loadMoreItems = () => {
@@ -34,12 +34,13 @@ export default function PlusSize() {
             <div className='flex px-10 py-5 gap-5'>
                 <Link to="/"><span className='text-gray-700'>Home</span></Link>
                 <span className='text-gray-700'>/</span>
-                <Link><span className='text-gray-950'>Shop All</span></Link>
+                <Link><span className='text-gray-950'>PlusSize</span></Link>
             </div>
             <img src="/src/imgPlusSize/1.jpg" className="w-full my-5" alt="" />
             <div className="flex-wrap flex gap-5 justify-center m-10">
                 {items.map(item => (
-                    <div key={item.id} className='w-[30%]'>
+                    <Link to={`/PlusSize/${item.id}`} key={item.id} className="w-[30%]">
+
                         <div className='relative'>
                             {item.isNew && <span className="absolute px-3 m-2 bg-white">New</span>}
                             <img src={item.image} alt="" />
@@ -54,7 +55,8 @@ export default function PlusSize() {
                             <span className='cursor-pointer w-5 h-5 bg-[#909225] rounded-[50%]'></span>
                             <span className='cursor-pointer w-5 h-5 bg-[#748C70] rounded-[50%]'></span>
                         </div>
-                    </div>
+
+                    </Link>
                 ))}
             </div>
             <div className="flex justify-center">
