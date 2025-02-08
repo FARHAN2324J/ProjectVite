@@ -3,7 +3,9 @@ import { useState } from "react";
 
 
 export default function Navbar() {
-        const [visibility, setVisibility] = useState({
+
+    
+      const [visibility, setVisibility] = useState({
       collection: false,
       newIn: false,
       plusSize: false,
@@ -40,8 +42,16 @@ export default function Navbar() {
       setTimeoutId(id);
     };
 
+
+    const [isVisible, setIsVisible] = useState(false);
+    const [showIcon, setShowIcon] = useState(false);
+    function ShowIcon() {
+        setShowIcon(!showIcon);
+        setIsVisible(!isVisible);
+    }
+
     return (
-        <div>
+        <div className=''>
             <header className='font-[Montserrat]'>
           <div className="text-center py-2 bg-[#5A6D57]">
             <span className='text-amber-50 font-[300] tracking-[.8px] text-[12px] '>Enjoy Free Shipping On All Orders</span>  
@@ -72,16 +82,15 @@ export default function Navbar() {
   
             <div>
               <div className='flex gap-8 sm:text-2xl text-sm text-neutral-800 header-icons '>
-                <a href=""><i className='fas fa-search'></i></a>
-                <a className='sm:hidden block' href=""><i className='fas fa-search'></i></a>
-                <a className='sm:block hidden' href=""><i className='font-medium fas fa-user'></i></a>  
+                <button onClick={ShowIcon}>{showIcon ? <i className="fas fa-times"></i> : <i className="fas fa-search"></i>}</button>
+                <button className='sm:hidden block'><i className='fas fa-search'></i></button>
+                <Link to="/login"><i className='font-medium fas fa-user'></i></Link>
                 <Link to="/favorites">
                   <i className='far fa-heart'></i>  
                 </Link> 
-                <a href=""><i className='fas fa-shopping-bag'></i></a>  
+                <Link to="/store"><i className='fas fa-shopping-bag'></i></Link>
               </div>
             </div>
-  
           </div>   
         </header>
         <div className='relative'>
@@ -256,7 +265,14 @@ export default function Navbar() {
           {/* ------NAVBAR--HOVER-END----- */}
 
         </div>
-
+        <div className={`search-input-container absolute w-full text-[#ADADAD]  bg-white ${isVisible ? 'fade-in' : 'fade-out'}`}>
+              {isVisible && (
+              <div className='flex justify-center items-center gap-2 p-3 border-[#ADADAD] border-b w-[80%] m-auto'>
+                <i className='fas fa-search'></i>
+                <input type="text" className='w-[90%] outline-none' placeholder="search..." />
+              </div>
+          )}
+        </div>
         </div>
     )
 }

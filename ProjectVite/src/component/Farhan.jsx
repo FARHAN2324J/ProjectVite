@@ -1,20 +1,46 @@
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
 import Navbar from "./Navbar";
-
+import { HeartContext } from "./HeartContext";
 
 function Farhan() {
-    const [isRed, setIsRed] = useState(false);
-    const toggleBackground = () => {
+  const { incrementCount } = useContext(HeartContext);
+  const [isRed, setIsRed] = useState(false);
+  const [isRed2, setIsRed2] = useState(false);
+  const [isRed3, setIsRed3] = useState(false);
+
+  useEffect(() => {
+      const savedStatus1 = localStorage.getItem('heartStatus1');
+      const savedStatus2 = localStorage.getItem('heartStatus2');
+      const savedStatus3 = localStorage.getItem('heartStatus3');
+
+      if (savedStatus1 === 'true') {
+          setIsRed(true);
+      }
+      if (savedStatus2 === 'true') {
+          setIsRed2(true);
+      }
+      if (savedStatus3 === 'true') {
+          setIsRed3(true);
+      }
+  }, []);
+
+  const toggleBackground = () => {
       setIsRed(!isRed);
-    };
-    const [isRed2, setIsRed2] = useState(false);
-    const toggleBackground2 = () => {
+      incrementCount();
+      localStorage.setItem('heartStatus1', !isRed);
+  };
+
+  const toggleBackground2 = () => {
       setIsRed2(!isRed2);
-    };
-    const [isRed3, setIsRed3] = useState(false);
-    const toggleBackground3 = () => {
+      incrementCount();
+      localStorage.setItem('heartStatus2', !isRed2);
+  };
+
+  const toggleBackground3 = () => {
       setIsRed3(!isRed3);
-    };
+      incrementCount();
+      localStorage.setItem('heartStatus3', !isRed3);
+  };
   
     return (
       <div className='font-[Montserrat]'>

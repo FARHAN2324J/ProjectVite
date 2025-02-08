@@ -1,7 +1,9 @@
+import Farhan from "./Farhan";
+
 function Favorites() {
     return (
         <>
-            <h1>HEART</h1>
+            <h1>Items: {count}</h1>
         </>
     )
 }

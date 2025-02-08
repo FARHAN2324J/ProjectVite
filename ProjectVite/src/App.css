@@ -31,3 +31,37 @@ body{
     66% {background-size: 20% 100%,20% 100%,20% 10% }
     100%{background-size: 20% 100%,20% 100%,20% 100%}
   }
+
+
+  
+.search-input-container {
+    transition: height 1s ease;
+    height: 0;
+  }
+  
+  .fade-in {
+    animation: fadeIn 0.5s forwards;
+  }
+  
+  .fade-out {
+    animation: fadeOut 0.5s forwards;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      height: 0;
+    }
+    to {
+      height: 200px;
+    }
+  }
+  
+  @keyframes fadeOut {
+    from {
+      height: 200px;
+    }
+    to {
+      height: 0;
+    }
+  }
+  

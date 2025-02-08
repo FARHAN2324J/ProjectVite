@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function Footer() {
     return (
         <footer className="text-white p-8 md:p-12 footer">
@@ -37,7 +39,7 @@ function Footer() {
                         <ul className="text-gray-400 space-y-2">
                             <li>Orders & Shipping</li>
                             <li>Returns & Refunds</li>
-                            <li>FAQs</li>
+                            <Link to='/faqs'><li>FAQs</li></Link>
                             <li>Contact Us</li>
                         </ul>
                     </div>
