@@ -6,6 +6,13 @@ import { useState } from 'react';
 import '../App.css'
 
 export default function PlusSizeDetails() {
+    const [visibleMessages, setVisibleMessages] = useState([false, false]);
+
+    const toggleMessageVisibility = (index) => {
+        const newVisibility = [...visibleMessages];
+        newVisibility[index] = !newVisibility[index];
+        setVisibleMessages(newVisibility);
+    };
     const { id } = useParams();
     const [currentImage, setCurrentImage] = useState(""); 
 
@@ -30,6 +37,8 @@ export default function PlusSizeDetails() {
     const handleImageChange = (image) => {
         setCurrentImage(image);
     };
+
+
 
     return (
         <div>
@@ -72,8 +81,42 @@ export default function PlusSizeDetails() {
                     <p className="text-lg">{item.description}</p>
                     <p className="text-xl font-bold">{item.price}</p>
                     <button className='bg-[#5A6D57] p-2 text-[#FFFFFF] cursor-pointer my-5'>Add To Cart {item.price}</button>
-                    </div>
+                </div>
             </div>
+            <div className='w-[50%] mx-10 border border-[#CBCBCB] bg-[#F0F2EF] p-3'>
+                <div className='flex justify-between border-b border-[#CBCBCB] p-2'><h1 className='font-bold text-2xl'>Fitting</h1><button className='cursor-pointer text-3xl' onClick={() => toggleMessageVisibility(0)}>+</button></div>
+                {visibleMessages[0] && (
+                    <div className='p-3 flex flex-col gap-3'>
+                        <div className='flex justify-between'>
+                            <h1 className='text-[#748C70] font-bold text-xl'>Fabric & care</h1>
+                            <button className='cursor-pointer text-3xl' onClick={() => toggleMessageVisibility(0)}>-</button>
+                        </div>
+                        <p>Fabric:</p>
+                        <p>Cupro Luxe, Made In Turkey, 100% Cupro, 38% Elastane, 100% Vegan Materials</p>
+                        <p>Care:</p>
+                        <p>Cold Machine Wash, Line Dry</p>
+                        <p>Do Not Tumble Dry Or Dry Clean, Do Not Use Bleach Or Fabric Softener</p>
+                    </div>
+                )}
+                
+            </div>
+            <div className='w-[50%] mx-10 mb-20 border border-[#CBCBCB] bg-[#F0F2EF] p-3'>
+                <div className='flex justify-between border-b border-[#CBCBCB] p-2'><h1 className='font-bold text-2xl'>Product Detail</h1><button className='cursor-pointer text-3xl' onClick={() => toggleMessageVisibility(1)}>+</button></div>
+                {visibleMessages[1] && (
+                    <div className='p-3 flex flex-col gap-3'>
+                        <div className='flex justify-between'>
+                            <h1 className='text-[#748C70] font-bold text-xl'>Shipping & Returns</h1>
+                            <button className='cursor-pointer text-3xl' onClick={() => toggleMessageVisibility(1)}>-</button>
+                        </div>
+                        <p>Shipping:</p>
+                        <p>Cupro Luxe, Made In Turkey, 100% Cupro, 38% Elastane, 100% Vegan Materials</p>
+                        <p>Returns:</p>
+                        <p>Cold Machine Wash, Line Dry</p>
+                        <p>Do Not Tumble Dry Or Dry Clean, Do Not Use Bleach Or Fabric Softener</p>
+                    </div>
+                )}
+            </div>
+
             <Footer/>
         </div>
     );
